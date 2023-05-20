@@ -75,4 +75,23 @@ def add_pet_to_customer(customer_pets, new_pet):
 def customer_can_afford_pet(customer_cash, pet_price):
     return customer_cash["cash"] >= pet_price["price"]
 
+# integration test
+def sell_pet_to_customer(pet_shop, pet, customer):
+    # if there is a pet in the shop and the customer has enough cash
+    if pet in pet_shop["pets"] and customer["cash"] >= pet["price"]:
+        #remove the pet from the shop
+        pet_shop["pets"].remove(pet)
+        # add 1 pet to the total pets sold
+        pet_shop["admin"]["pets_sold"] += 1
+        # add pet price to total cash
+        pet_shop["admin"]["total_cash"] += pet["price"]
+        # add pet to customer
+        customer["pets"].append(pet)
+        # subtract pet price from customer cash
+        customer["cash"] -= pet["price"]
+
+
+
+
+    
     
