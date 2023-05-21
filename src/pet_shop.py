@@ -89,9 +89,3 @@ def sell_pet_to_customer(pet_shop, pet, customer):
         customer["pets"].append(pet)
         # subtract pet price from customer cash
         customer["cash"] -= pet["price"]
-
-
-
-
-    
-    
